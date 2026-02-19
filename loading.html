@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>System Booting...</title>
+
+<style>
+body {
+  margin: 0;
+  background: black;
+  color: #00ffcc;
+  font-family: monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#box {
+  text-align: center;
+}
+
+#bar {
+  width: 300px;
+  height: 15px;
+  border: 1px solid #00ffcc;
+  margin-top: 15px;
+}
+
+#progress {
+  height: 100%;
+  width: 0%;
+  background: #00ffcc;
+}
+
+#error {
+  color: red;
+  display: none;
+  margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="box">
+
+  <h2>Booting System...</h2>
+
+  <div id="bar">
+    <div id="progress"></div>
+  </div>
+
+  <div id="percent">0%</div>
+
+  <div id="error">
+    ⚠ SYSTEM FAILURE <br>
+    Data Corrupted
+  </div>
+
+</div>
+
+
+<script>
+localStorage.setItem("load", "true");
+let percent = 0;
+const bar = document.getElementById("progress");
+const text = document.getElementById("percent");
+const error = document.getElementById("error");
+
+const timer = setInterval(() => {
+
+  percent += 2;
+
+  bar.style.width = percent + "%";
+  text.innerText = percent + "%";
+
+  // Tới 50% thì crash
+  if (percent >= 36) {
+
+    clearInterval(timer);
+
+    setTimeout(() => {
+
+      error.style.display = "block";
+
+    }, 500);
+
+    // Đen màn hình
+    setTimeout(() => {
+
+      document.body.innerHTML = "";
+
+      setTimeout(() => {
+        window.location.href = "oops.html";
+      }, 1500);
+
+    }, 2000);
+  }
+
+}, 80);
+
+</script>
+
+</body>
+</html>

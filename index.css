@@ -1,0 +1,47 @@
+body {
+  min-height: 100vh;
+  margin: 0;
+
+  background: url("TUNA2300.JPG") center/cover no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+}
+
+/* iOS Frosted Glass */
+#login {
+  width: 20%;
+  height: 50%;
+  padding: 2%;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  /* nền trắng cực nhạt */
+  background: rgba(255, 255, 255, 0.28);
+
+  /* blur mạnh */
+  backdrop-filter: blur(22px) saturate(180%);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+
+  /* bo góc kiểu iOS */
+  border-radius: 22px;
+
+  /* viền rất mảnh */
+  border: 0.5px solid rgba(255,255,255,0.4);
+
+  /* shadow rất nhẹ */
+  box-shadow:
+    0 4px 20px rgba(0,0,0,0.12);
+
+  /* font mượt hơn */
+  color: #000;
+  font-weight: 500;
+  background: rgba(255,255,255,0.18);
+
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+}

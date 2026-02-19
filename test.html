@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>System Error</title>
+
+<style>
+
+body {
+  margin: 0;
+  background: black;
+  color: #00ffcc;
+  font-family: monospace;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#terminal {
+  padding: 15px;
+  font-size: 13px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}
+
+.error {
+  color: #ff4444;
+}
+
+.warn {
+  color: #ffaa00;
+}
+
+.ok {
+  color: #00ffcc;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="terminal"></div>
+
+
+<script>
+
+const terminal = document.getElementById("terminal");
+
+const logs = [
+
+  "[OK] Initializing memory_core...",
+  "[OK] Mounting heart_drive...",
+  "[OK] Loading user_profile...",
+  "[OK] Syncing emotions...",
+  "[OK] Verifying memories...",
+  "[WARN] Data fragment missing...",
+  "[OK] Rebuilding cache...",
+  "[WARN] Integrity unstable...",
+  "[OK] Retrying connection...",
+  "[ERROR] Memory corruption detected",
+  "[ERROR] Critical file: YOU.sys missing",
+  "[ERROR] System panic",
+  "[ERROR] Emergency shutdown"
+];
+
+
+let i = 0;
+
+
+function addLine() {
+
+  if (i < logs.length) {
+
+    const line = logs[i];
+
+    let span = document.createElement("span");
+
+
+    if (line.includes("ERROR")) {
+      span.className = "error";
+    } 
+    else if (line.includes("WARN")) {
+      span.className = "warn";
+    }
+    else {
+      span.className = "ok";
+    }
+
+
+    span.textContent = line + "\n";
+
+    terminal.appendChild(span);
+
+    window.scrollTo(0, document.body.scrollHeight);
+
+    i++;
+
+    setTimeout(addLine, 200);
+
+  } else {
+
+    // Sau khi log xong → màn hình đen → recovery
+    setTimeout(() => {
+
+      document.body.style.background = "black";
+      terminal.innerHTML = "";
+
+      setTimeout(() => {
+        window.location.href = "recovery.html";
+      }, 1500);
+
+    }, 2000);
+  }
+}
+
+addLine();
+
+</script>
+
+</body>
+</html>

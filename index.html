@@ -1,11 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>System Access</title>
+
+<style>
+
+body {
+  margin: 0;
+  background: #050505;
+  color: #00ffcc;
+  font-family: "Courier New", monospace;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#terminal {
+  width: 90%;
+  max-width: 400px;
+  background: #0d0d0d;
+  border: 1px solid #00ffcc;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 20px #00ffcc44;
+}
+
+h3 {
+  margin-top: 0;
+  text-align: center;
+  color: #00ffaa;
+}
+
+pre {
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #00ffcc;
+  color: #00ffcc;
+  font-family: monospace;
+  font-size: 14px;
+  width: 150px;
+  outline: none;
+}
+
+button {
+  margin-top: 15px;
+  width: 100%;
+  background: #00ffcc;
+  border: none;
+  padding: 10px;
+  font-family: monospace;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background: #00ddaa;
+}
+
+#error {
+  color: #ff4444;
+  margin-top: 10px;
+  display: none;
+  text-align: center;
+  font-size: 13px;
+}
+
+</style>
 </head>
+
 <body>
-    
+
+<div id="terminal">
+
+<h3>🔐 SYSTEM LOGIN</h3>
+
+<pre>
+user = {
+  name: "<input id="user" placeholder="username">",
+  password: "<input id="pass" type="password" placeholder="******">",
+  access: "request"
+}
+</pre>
+
+<button onclick="login()">AUTHENTICATE</button>
+
+<div id="error">
+ACCESS DENIED ❌
+</div>
+
+</div>
+
+
+<script>
+
+
+// ===== CẤU HÌNH Ở ĐÂY =====
+const CORRECT_USER = "ngocanh";
+const CORRECT_PASS = "12062022";
+// ==========================
+
+
+// Auto login nếu đã vào trước đó
+if (localStorage.getItem("auth") === "true") {
+  window.location.href = "loading.html";
+} else if (localStorage.getItem("load") === "true"){
+  window.location.href = "recovery.html"
+}
+
+
+function login() {
+
+  const user = document.getElementById("user").value.trim();
+  const pass = document.getElementById("pass").value.trim();
+
+  const error = document.getElementById("error");
+
+
+  if (user === CORRECT_USER && pass === CORRECT_PASS) {
+
+    localStorage.setItem("auth", "true");
+
+    window.location.href = "loading.html";
+
+  } else {
+
+    error.style.display = "block";
+
+  }
+
+}
+
+</script>
+
 </body>
 </html>
