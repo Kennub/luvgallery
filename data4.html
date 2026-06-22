@@ -18,6 +18,7 @@
     if (localStorage.getItem("data3Done") === "true"){
         const text = "Đã khôi phục lại data3!";
         document.getElementById("announce").innerHTML += text
+        localStorage.setItem("data4Done", "true");
     } else {
         const text = "Hãy khôi phục lại Data3 trước!";
         document.getElementById("announce").innerHTML += text
