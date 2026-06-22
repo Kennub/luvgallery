@@ -65,10 +65,12 @@ body {
 
 <script>
 localStorage.setItem("load", "true");
+// Cài đặt dữ liệu
 let percent = 0;
 const bar = document.getElementById("progress");
 const text = document.getElementById("percent");
 const error = document.getElementById("error");
+const nextPage = "./oops.html"
 
 const timer = setInterval(() => {
 
@@ -94,7 +96,7 @@ const timer = setInterval(() => {
       document.body.innerHTML = "";
 
       setTimeout(() => {
-        window.location.href = "oops.html";
+        window.location.href = nextPage;
       }, 1500);
 
     }, 2000);

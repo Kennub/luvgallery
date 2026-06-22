@@ -106,16 +106,16 @@ ACCESS DENIED ❌
 
 
 // ===== CẤU HÌNH Ở ĐÂY =====
-const CORRECT_USER = "ngocanh";
-const CORRECT_PASS = "12062022";
+const CORRECT_USER = "hnganne";
+const CORRECT_PASS = "230825";
+const recoveryPage = "recovery.html"
+const loadingPage = "loading.html"
 // ==========================
 
 
 // Auto login nếu đã vào trước đó
-if (localStorage.getItem("auth") === "true") {
-  window.location.href = "loading.html";
-} else if (localStorage.getItem("load") === "true"){
-  window.location.href = "recovery.html"
+if (localStorage.getItem("load") === "true"){
+  window.location.href = recoveryPage
 }
 
 
@@ -131,7 +131,7 @@ function login() {
 
     localStorage.setItem("auth", "true");
 
-    window.location.href = "loading.html";
+    window.location.href = loadingPage;
 
   } else {
 

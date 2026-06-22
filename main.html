@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuvGal</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div id="content">
+        <div class="page active" id="1">
+            <h1 id="header">Hành trình tình iu</h1>
+            <p>
+                Xin chào em bé, chúc mừng em bé đã vượt qua những thử thách để khôi phục 
+                lại kí ức về tình yêu của chúng mình. Giờ thì cùng nhau nhìn lại đoạn kí ức tuyệt vời của chúng ta trong thời gian 
+                vừa qua nhó.
+            </p>
+            <button onclick="nextPage()">Tiếp tục →</button>
+        </div>
+        <div class="page" id="2">
+            <h1 id="header">Intro</h1>
+            <p>Tương tư nàng nhân viên</p>
+            <p>Gặp nhau nơi công sở</p>
+            <button onclick="nextPage()">Tiếp tục</button>
+        </div>
+        <div class="page" id="3">
+            <h1 id="header">First time we met</h1>
+            <p>Tương tư nàng nhân viên</p>
+            <p>Gặp nhau nơi công sở</p>
+            <button onclick="nextPage()">Tiếp tục</button>
+        </div>
+    </div>
+
+    <!-- script hiển thị page -->
+    <script>
+
+        let current = 0;
+        const pages = document.querySelectorAll(".page");
+
+        function showPage(i) {
+
+            pages.forEach(p => p.classList.remove("active"));
+
+            pages[i].classList.add("active");
+
+        }
+
+        function nextPage() {
+
+            if (current >= pages.length - 1) return;
+
+            current++;
+
+            showPage(current);
+        }
+
+        function restart() {
+
+            current = 0;
+
+            showPage(current);
+        }
+
+        // window.onload = () => {
+
+        // const saved = localStorage.getItem("page");
+
+        // if (saved) current = Number(saved);
+
+        //     showPage(current);
+        // }
+
+</script>
+</body>
+</html>

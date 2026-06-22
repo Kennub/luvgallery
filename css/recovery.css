@@ -1,0 +1,33 @@
+html {
+    padding: 0;
+    margin: 0;
+    background-color: black;
+}
+.text{
+    color: rgb(78, 249, 39);
+    font-family: "Handjet", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+        "ELGR" 4,
+        "ELSH" 4;
+}
+.data {
+    text-decoration: none;
+    color: rgb(78, 249, 39);
+    font-family: "Handjet", sans-serif;
+    font-size: 140%;
+}
+ul {
+    margin-top: 15vh;
+    display: flex;       /* Kích hoạt flexbox */
+    list-style: none;    /* Bỏ dấu chấm */
+    padding: 0;
+    justify-content: space-around;
+}
+.data:hover{
+    color: blue;
+    text-decoration: underline;
+}
+
