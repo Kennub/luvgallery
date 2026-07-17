@@ -31,3 +31,26 @@ ul {
     text-decoration: underline;
 }
 
+#forward {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.forward-btn {
+    display: inline-block;
+    padding: 14px 26px;
+    border: 2px solid rgb(78, 249, 39);
+    border-radius: 999px;
+    color: rgb(78, 249, 39);
+    text-decoration: none;
+    font-family: "Handjet", sans-serif;
+    font-size: 1.4rem;
+    transition: 0.2s ease;
+}
+
+.forward-btn:hover {
+    background: rgb(78, 249, 39);
+    color: black;
+}
+

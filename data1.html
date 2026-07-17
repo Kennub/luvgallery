@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/data2.css">
+    <link rel="stylesheet" href="css/data1.css">
     <link href="css/themify-icons.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,9 +13,25 @@
 </head>
 <body>
     <h1 id="announce" class="text"></h1>
-    
+    <div class="img"></div>
+    <a href="../img/anni 6m idea img/chall1.JPEG" download="chall1.JPEG" class="download-btn">Tải xuống ảnh</a>
+    <input type="text" class="answer-input" placeholder="Mật khẩu">
+    <button class="submit-btn">Kiểm tra</button>
 </body>
 <script>
-    localStorage.setItem("data1Done", "true");
+    passedMessage = "Đã khôi phục lại data1!"
+    failedMessage = "Hãy tìm ra bí mật trong bức ảnh này"
+    let password = document.querySelector(".answer-input").value;
+    let button = document.querySelector(".submit-btn");
+    button.onclick = function() {
+        password = document.querySelector(".answer-input").value;
+        if (password === "them_da") {
+            document.getElementById("announce").innerHTML += passedMessage
+            localStorage.setItem("data1Done", "true");
+        } else {
+            document.getElementById("announce").innerHTML += failedMessage
+        }
+    }
+    
 </script>
 </html>

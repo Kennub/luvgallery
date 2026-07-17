@@ -18,20 +18,23 @@
 </body>
 <script>
     const duration = 10
-    function type(_text, _dur, ind = 0) {
-            if (ind < _text.length) {
-                document.getElementById("typing").innerHTML += _text.charAt(ind);
-                ind++;
-                setTimeout(() => type(_text, _dur, ind), _dur);
+    const forward = document.getElementById("forward");
+    function type(_text, _dur, _ind = 0) {
+            if (_ind < _text.length) {
+                document.getElementById("typing").innerHTML += _text.charAt(_ind);
+                _ind++;
+                setTimeout(() => type(_text, _dur, _ind), _dur);
             }
         }
     if (localStorage.getItem("data4Done") === "true"){
         const text = "Hệ thống đã được khôi phục hoàn chỉnh, giờ bạn có thể bấm vào nút bên dưới để truy cập vào hệ thống!";
+        forward.innerHTML = '<a href="main.html" class="forward-btn">Vào hệ thống</a>';
         type(text, duration);
     } else {  
         const text = "Chào mừng bạn tới với hệ thống, rất xin lỗi bạn vì sự cố hiện tại. Hiện tại hệ thống đang gặp một số trục trặc nhất định. Để truy cập vào hệ thống, bạn có thể tự mình khôi phục những vùng dữ liệu còn thiếu, giúp hệ thống vận hành. Dưới đây là những mục còn bị thiếu:";
         const list = '<li><a href="data1.html" class="data" class="text"><i class="ti-folder"></i>   Data 1</a></li><li><a href="data2.html" class="data" class="text"><i class="ti-folder"></i>   Data 2</a></li><li><a href="data3.html" class="data" class="text"><i class="ti-folder"></i>   Data 3</a></li><li><a href="data4.html" class="data" class="text"><i class="ti-folder"></i>   Data 4</a></li>'
         document.getElementById("listed").innerHTML += list
+        forward.innerHTML = "";
         type(text, duration);
     }
     </script>

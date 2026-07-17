@@ -31,3 +31,9 @@ ul {
     text-decoration: underline;
 }
 
+.img{
+    background-image: url("../img/anni 6m idea img/chall1.JPEG");
+    width: 100%;
+    height: 100vh;
+    display: inline-block;
+}
